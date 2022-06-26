@@ -79,7 +79,7 @@ public class Reverse_List_K_groups {
 		// TODO Auto-generated method stub
 	   int k = 5;	
        Reverse_List_K_groups list = new Reverse_List_K_groups();
-       list.head = new Node(1);
+       head = new Node(1);
        list.head.next = new Node(2);
        list.head.next.next = new Node(3);
        list.head.next.next.next= new Node(4);

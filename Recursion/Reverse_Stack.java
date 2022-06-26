@@ -31,9 +31,9 @@ public class Reverse_Stack {
     {
            if(stack.size() >0)
            {
-               int temp = stack.peek();
+               int temp = stack.pop();
                
-               stack.pop();
+               //stack.pop();
                
                reverse(stack);
                
@@ -47,8 +47,9 @@ public class Reverse_Stack {
     
     
     public static void main(String args[])
-    {   
-        
+    {
+        stack.push(5);
+        stack.push(4);
         stack.push(3);
         stack.push(2);
         stack.push(1);

@@ -44,6 +44,7 @@ public class MatPath {
 	public static void main(String[] args) {
 		int arr[][] = {{1,2,3},{4,5,6},{7,8,9}};
 		int n = arr.length;
+		System.out.println(n);
 		ArrayList<String> list = new ArrayList<>();
 		list = findPaths(arr,0,0,n);
         System.out.println(list);

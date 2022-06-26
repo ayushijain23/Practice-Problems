@@ -62,6 +62,9 @@ public class Recursive_Digit_Sum {
        
        int result2 = digitSum2(Integer.toString(sum));
        System.out.println(result2);
+
+		int result3 = digitSum2("148");
+		System.out.println(result3);
 	}
 
 }

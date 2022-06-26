@@ -11,7 +11,7 @@ public class Add_Two_Numbers_In_List {
 		int data;
 		Node next;
 		
-		Node( int data)
+		Node(int data)
 		{
 			this.data = data;
 			next = null;

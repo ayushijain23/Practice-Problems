@@ -19,6 +19,22 @@ public class Search_Element {
 	       
 	     return findElement(arr, l+1, r-1, k);
 	   }
+
+	   public static int findByBinaryRecursion(int arr[], int low, int high, int x) {
+		   if (low <= high) {
+			   int mid = low + (high - low) / 2;
+			   if (arr[mid] == x) {
+				   return mid;
+			   }
+
+			   else if (arr[mid] > x) {
+				   return findByBinaryRecursion(arr, low, mid - 1, x);
+			   }
+			   else
+				   return findByBinaryRecursion(arr, mid + 1, high, x);
+		   }
+         return -1;
+	   }
 	   
 	public static void main (String[] args) throws IOException{
 		//code
@@ -39,6 +55,8 @@ public class Search_Element {
 	       int k = Integer.parseInt(br.readLine());
 	       int result = findElement(arr, 0, n-1, k);
 	       System.out.println("Element found at Index:"+result);
+
+		   System.out.println("Element found at Index by Recursion:"+findByBinaryRecursion(arr, 0, n-1, k));
 	   }
 	  
 	}

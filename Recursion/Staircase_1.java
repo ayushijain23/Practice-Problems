@@ -55,6 +55,23 @@ public class Staircase_1 {
 		
 		return dp[n];
 	}
+
+	//memoization (by top-down)
+	private static int findsPathsTopToBottom(int n, int dp[]){
+		if(n== 0){
+			return 1;
+		}
+		if( n < 0){
+			return 0;
+		}
+		if(dp[n] != 0){
+			return dp[n];
+		}
+		int oneStep = findsPathsTopToBottom(n-1, dp);
+		int twoSteps = findsPathsTopToBottom(n-2, dp);
+		int threeSteps = findsPathsTopToBottom(n-3, dp);
+		return dp[n] = oneStep + twoSteps + threeSteps;
+	}
 	
 	//using dp- 3steps
 	private static int findPathsByDp3Steps(int n)
@@ -74,13 +91,16 @@ public class Staircase_1 {
 	}
 	
 	public static void main(String[] args) {
-		int n = 3;
+		int n = 5;
 		
 		System.out.println(findTotalPaths2Steps(n));
 		System.out.println(findPathsByDp(n));
 		
 		System.out.println(findTotalPaths3Steps(n));
 		System.out.println(findPathsByDp3Steps(n));
+
+		int dp[] = new int[n+1];
+		System.out.println(findsPathsTopToBottom(n, dp));
 	}
 
 }

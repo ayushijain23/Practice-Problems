@@ -26,13 +26,8 @@ public class SubSequence_String {
 		{
 			//System.out.println(val);
 			res.add(val);
-		}
-		
-		for( String val : rem)
-		{
 			res.add(temp + val);
 		}
-		
 		return res;
 		
 	}

@@ -9,7 +9,7 @@ private static void printArray(int arr[])
 {
 	for(int i : arr)
 	{
-		System.out.println(i+" ");
+		System.out.print(i+" ");
 	}
 }
 	
@@ -72,11 +72,27 @@ private static int[] allIndexes(int arr[], int idx, int val, int count)
        int indexLast =  LastIndex(arr, 0, 8);
        System.out.println(index);
        System.out.println(indexLast);
-            
+
+		 int indexLast2 =  findLast2(arr, arr.length - 1, 2);
+		 System.out.println("LastIndex:"+indexLast2);
+
       int res[] = allIndexes(arr, 0, 2, 0);
       
       printArray(res);
      
+	}
+
+	public static int findLast2(int arr[], int idx, int val){
+		if(idx == -1){
+			return -1;
+		}
+	    if(arr[idx] == val)
+		  return idx;
+
+		else{
+			return findLast2(arr, idx -1, val);
+		}
+
 	}
 
 }

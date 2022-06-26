@@ -14,47 +14,27 @@ package array;
 
 public class Maximum_SubProduct {
 
-	private static int MaxSubProduct(int arr[])
+	private static int MaxSubProduct(int nums[])
 	{
-		int ans= Integer.MIN_VALUE;
-		
-		int maxProduct = 1;
-		int minProduct = 1;
-		
-		for(int i = 0;i < arr.length;i++)
-		{
-			//Case 1 : when arr[i] > 0 
-		if(arr[i]>0)
-		{
-			maxProduct = maxProduct * arr[i];
-			minProduct = Math.min(1,  minProduct*arr[i]);
+		int maxSoFar = nums[0];
+		int minSoFar = nums[0];
+		int maxProduct = nums[0];
+
+		for(int i = 1; i < nums.length; i++){
+			if(nums[i] >= 0){
+				maxSoFar = Math.max(maxSoFar * nums[i], nums[i]);
+				minSoFar = Math.min(minSoFar * nums[i], nums[i]);
+			}
+
+			else{
+				int temp = maxSoFar;
+				maxSoFar = Math.max(minSoFar * nums[i], nums[i]);
+				minSoFar = Math.min(temp * nums[i], nums[i]);
+			}
+
+			maxProduct = Math.max(maxProduct, maxSoFar);
 		}
-		
-		else if(arr[i]==0)
-		{
-			maxProduct = 0;
-			minProduct = 0;
-		}
-		
-		
-		else if(arr[i] < 0)
-		{
-		   int temp = maxProduct;
-		   maxProduct = minProduct * arr[i];
-		   minProduct = temp * arr[i];
-		}
-		
-		if(ans < maxProduct)
-			 ans = maxProduct;
-		
-		if(maxProduct<=0 || minProduct==0)
-		{
-			maxProduct = 1;
-			minProduct = 1;
-		}
-		
-	   }
-	  return ans;
+		return maxProduct;
 	}
 	
 	private static int MaxSubProductArray(int arr[])
@@ -65,12 +45,12 @@ public class Maximum_SubProduct {
 		int l = 0,m=0;
 		for( int i = 0;i<n;i++)
 		{
-			for(int j = i;j<n;j++)
+			for(int j = i; j < n; j++)
 			{
 				int product = 1;
-				for( int k = i;k<=j;k++)
+				for( int k = i; k <= j; k++)
 				{
-					product=product*arr[k];
+					product = product * arr[k];
 				}
 				
 				if(product > ans)
@@ -92,10 +72,10 @@ public class Maximum_SubProduct {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
         int arr1[] = {2,3,2,-4};
-        int arr2[] = {-2,0,-1};
+        int arr2[] = {-3,-1,-1};
         int arr3[] = {2,1,2,-4};
         
-     System.out.println(MaxSubProduct(arr3));
+     System.out.println(MaxSubProduct(arr2));
      System.out.println(MaxSubProductArray(arr1));
       System.out.println(MaxSubProductArray(arr3));
 	}
