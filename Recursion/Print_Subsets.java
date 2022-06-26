@@ -1,29 +1,35 @@
 package Recursion;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Print_Subsets {
 	public static void main(String[] args) throws Exception {
 	      
 	       int tar = 50;
-	       int arr[] = {10,20,30,40,50};
-	       printTargetSumSubsets(arr, 0, "", 0, tar );
+	       int arr[] = {10,20,30, 40};
+	       printTargetSumSubsets(arr, 0, new ArrayList<Integer>(), 0, tar );
 	    }
 
 	    // set is the subset
 	    // sos is sum of subset
 	    // tar is target
-	    public static void printTargetSumSubsets(int[] arr, int idx, String set, int sos, int tar) {
+	    public static void printTargetSumSubsets(int[] arr, int idx, List<Integer> list,int sum, int tar) {
 	          if( idx == arr.length)
 	          {
-	              if( sos == tar)
+				  //System.out.print(list);
+	              if( tar == sum)
 	              {
-	                  System.out.println(set +".");
+	                  System.out.println(list);
 	              }
 	              return;
 	          }
 
-	          printTargetSumSubsets(arr, idx + 1, set + Integer.toString(arr[idx]) +",", sos + arr[idx], tar);
-	          printTargetSumSubsets(arr, idx + 1, set , sos, tar);
+			  list.add(arr[idx]);
+	          printTargetSumSubsets(arr, idx + 1, list, sum + arr[idx], tar);
+			  list.remove(list.size() - 1);
+
+	          printTargetSumSubsets(arr, idx + 1, list , sum, tar);
 	    }
 }

@@ -20,8 +20,7 @@ public class reverseList {
 		Node curr = head;
 		Node prev = null;
 		Node nextNode = null;
-		
-		
+
 		while(curr != null)
 		{
 			nextNode = curr.next;

@@ -85,7 +85,7 @@ public class KadaneAlgorithm {
     
           public static void main(String[] args) {
        int arr[] = {-2,0,-1,-3,5,4,-6,-5,7,5};
-       int arr2[] = {-2,0,-1,-3};
+       int arr2[] = {-2,-5,-1,-3};
        int arr3[] = {10,-9,20,-8};
        int arr4[]= {2,5,-4,-3,-9};
        
@@ -97,5 +97,26 @@ public class KadaneAlgorithm {
         
         result = findSum2(arr4);
         System.out.println(result);
+
+		result = kadaneAlgo(arr2);
+		System.out.println(result);
     }
+
+	private static int kadaneAlgo(int[] arr4) {
+		 int maxVal = Integer.MIN_VALUE;
+		 int sum = 0;
+
+		 for(int val : arr4){
+			 sum+= val;
+
+			 if(maxVal < sum){
+				 maxVal = sum;
+			 }
+			 if(sum < 0){
+				 sum = 0;
+			 }
+		 }
+
+		 return maxVal;
+	}
 }

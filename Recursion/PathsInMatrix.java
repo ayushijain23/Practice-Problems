@@ -82,41 +82,38 @@ public class PathsInMatrix {
 		
 	}	
 
-	private static ArrayList<String> findPaths3(int mat[][], int i , int j, int m, int n)
-	{
-		ArrayList<String> hpaths = new ArrayList<>();
-		ArrayList<String> vpaths = new ArrayList<>();
-		
-		if( i == m-1 &&  j == n-1)
-		{
-			ArrayList<String> res = new ArrayList<>();
-			res.add(Integer.toString(mat[i][j]));
-			return res;
+
+	public static void solve(int mat[][], int i, int j, int m, int n, ArrayList<String> result, String move){
+
+		if(i == m-1 && j ==n-1){
+			move = move + Integer.toString(mat[i][j]);
+			result.add(move);
+			return;
 		}
-		
-		if( j < n-1)
-		{
-			hpaths = findPaths3(mat, i, j+1, m, n);
+
+		if( i < m-1 && i >= 0){
+			solve(mat, i+1, j, m, n, result, move +Integer.toString(mat[i][j]));
 		}
-		
-		if( i < m-1)
-		{
-			vpaths = findPaths3(mat, i+1, j, m ,n);
+
+		if(j < n-1 && j >= 0){
+			solve(mat, i, j+1, m, n, result, move + Integer.toString(mat[i][j]));
 		}
-		
-		ArrayList<String> res = new ArrayList<>();
-		
-		for(String str : hpaths)
-		{
-			res.add(Integer.toString(mat[i][j])+str);
+	}
+
+	public static void solve2(int mat[][], int i, int j, int m, int n, int di[], int dj[], ArrayList<String> result, String move){
+
+		if(i == m-1 && j ==n-1){
+			result.add(move);
+			return;
 		}
-		
-		for(String str : vpaths)
-		{
-			res.add(Integer.toString(mat[i][j])+str);
+        String dir = "HV";
+		for(int l = 0; l < dir.length(); l++) {
+			int nexti = i + di[l];
+			int nextj = j + dj[l];
+			if (nexti < m && nexti >= 0 && nextj < n && nextj >= 0) {
+				solve2(mat, nexti, nextj, m, n, di, dj, result, move + dir.charAt(l));
+			}
 		}
-		
-		return res;
 	}
 	
 	public static void main(String[] args) {
@@ -136,12 +133,26 @@ public class PathsInMatrix {
 	
 	ArrayList<String> result = findPaths(0,0,mat,m,n);
     System.out.println(result);
-    
-	 result = findPaths2(0,0,mat,m,n);
+
+	result = findPaths2(0,0,mat,m,n);
     System.out.println(result);
-    
-    result = findPaths3(mat,0,0,m,n);
-    System.out.println(result);
+
+	//Another method
+	ArrayList<String> resultPaths = new ArrayList<>();
+	solve(mat, 0, 0, m, n, resultPaths, "");
+		System.out.println(resultPaths);
+
+		int di[] = {0, 1};
+		int dj[] = {1, 0};
+
+		ArrayList<String> resultPaths2 = new ArrayList<>();
+		solve2(mat, 0, 0, m, n , di, dj, resultPaths2, "");
+		System.out.println(resultPaths2);
+
 	}
+
+
+
+
 
 }

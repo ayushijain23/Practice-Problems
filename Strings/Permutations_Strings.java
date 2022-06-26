@@ -78,7 +78,7 @@ public class Permutations_Strings {
 		findAllPermutations2(str, "");   // second method(by subString)
 		
 		System.out.println();		
-		System.out.println(str);
+		//System.out.println(str);
 
 	}
 

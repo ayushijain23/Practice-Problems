@@ -22,22 +22,13 @@ public class GetSequences {
 			res.add(temp + val);
 			res.add(val);
 		}
-		
-//		for( String val : rom)
-//		{
-//			res.add(val);
-//		}
 		return res;
 	}
 	
 	public static void main(String[] args) {
-		
 		String input = "abc";
-		
 		ArrayList<String> res = getSequences(input);
 		res.remove("");
 		System.out.println(res);
-
 	}
-
 }

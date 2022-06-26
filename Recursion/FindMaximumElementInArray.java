@@ -69,9 +69,9 @@ public class FindMaximumElementInArray {
   
       public static void main(String args[])
      {  
-         int arr[] = {1,10,1190,812,5};
+         int arr[] = {1,10,1190,812,5000};
          int n = arr.length;
-//         System.out.println(findMax(arr,0,n));
+         System.out.println(findMax(arr,0,n));
 //         System.out.println(findMax(arr,0,n));
 //         System.out.println(findMin(arr,0,n));
 //          System.out.println(trial(arr,0,n,arr[0]));

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Path_With_Obstacle {
-	private static List<String> findPaths( int mat[][], int i, int j, int m, int n)
+	private  List<String> findPaths( int mat[][], int i, int j, int m, int n)
 	{
 		if( i == m-1 && j ==n-1)
 		{
@@ -49,7 +49,8 @@ public class Path_With_Obstacle {
 		//int mat[][] = {{1,0}};
 		int m = mat.length;
 		int n = mat[0].length;
-		List<String> list = findPaths(mat,0,0,m,n);
+		Path_With_Obstacle pbj = new Path_With_Obstacle();
+		List<String> list = pbj.findPaths(mat,0,0,m,n);
         System.out.println(list);
 	}
 
