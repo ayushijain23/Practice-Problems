@@ -62,11 +62,12 @@ public class Count_Matrix_Path_Obstacles {
 	public static int countPathsByRecursion(int mat[][], int i, int j, int row, int col, int dp[][]){
         if(i < 0 || i >= row || j < 0 || j >= col)
 			return 0;
+		if(mat[i][j] == 1)
+			return 0;
+
 		if(i == row -1 && j ==col - 1){
 		   return 1;
 	    }
-		if(mat[i][j] == 1)
-			return 0;
 
 		if(dp[i][j] != 0){
 			return dp[i][j];
@@ -79,7 +80,7 @@ public class Count_Matrix_Path_Obstacles {
 	}
 
 	public static void main(String[] args) {
-		int mat[][] = {{0,0,0},{0,0,1},{0,0,0}};
+		int mat[][] = {{0,1,0},{0,0,1},{0,0,0}};
 
 		int paths = countPaths(mat);
 		System.out.println(paths);

@@ -7,11 +7,13 @@ public class Paint_Paintings_Ways {
         if( y == 0)
             return 1;
 
+        long temp = power(x, y/2) % modd;
+
         if(y % 2 == 1){
-            return (x * (power(x, y/2) % modd) * (power(x, y/2) % modd)) % modd;
+            return (x * temp * temp ) % modd;
         }
         else
-            return (power(x, y/2) % modd * power(x, y/2) % modd) % modd;
+            return (temp * temp) % modd;
     }
     public static int ways(int m, int n){
         return (int)(power(m- 1, n - 1) * m % modd);

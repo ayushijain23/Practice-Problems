@@ -6,25 +6,21 @@ public class Lowest_Common_Ancestor {
 	
 	public static Node LCA(Node root, int p, int q)
 	{
-		if(root==null)
+		if(root == null){
 			return null;
-		
-		if(root.data == p || root.data==q)
-		{
+		}
+		if(root.data == p || root.data == q){
 			return root;
 		}
-		
-		if(root.data > p && root.data > q)
-		{
-			return LCA(root.left,p,q);
+
+		Node leftLCA = LCA(root.left, p, q);
+		Node rightLCA = LCA(root.right, p, q);
+
+		if(leftLCA != null && rightLCA != null){
+			return root;
 		}
-		
-		else if(root.data < p && root.data < q)
-		{
-			return LCA(root.right,p,q);
-		}
-		
-		return root;
+
+		return leftLCA != null ? leftLCA : rightLCA;
 	}
 
 	public static void main(String[] args) {

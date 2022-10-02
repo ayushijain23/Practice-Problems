@@ -16,7 +16,7 @@ Explanation: The substring "eeeee" is of length 5 with the character 'e' only.
 Done
 
  */
-public class consecutive_Characters {
+public class  consecutive_Characters {
 	
 	private static int maxPower(String s)
 	{

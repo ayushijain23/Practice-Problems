@@ -1,5 +1,8 @@
 package Recursion;
 
+import java.util.*;
+import java.util.stream.Collectors;
+
 /*
   https://www.youtube.com/watch?v=sPAT_DbvDj0&list=PL-Jc9J83PIiFxaBahjslhBD1LiJAV7nKs&index=43
   lets take string  = "abc"
@@ -11,23 +14,28 @@ package Recursion;
  */
 public class Print_Permutation {
 	
-	 public static void printPermutations(String str, String ans) {
+	 public static void printPermutations(String str, String ans, Set<String> set) {
          if(str.length() == 0)
          {
-             System.out.print(ans+", ");
+           //  System.out.print(ans+", ");
+             set.add(ans);
              return;
          }
          for( int i = 0 ; i < str.length() ; i++)
          {
              char ch = str.charAt(i);
              String ros = str.substring(0,i) + str.substring(i+1);
-             printPermutations(ros, ans + ch);
+             printPermutations(ros, ans + ch, set);
          }
 	 }
 
 	public static void main(String[] args) {
-		String str = "abcd";
-		printPermutations(str, "");
+		String str = "ABB";
+        Set<String> set = new HashSet<>();
+		printPermutations(str, "", set);
+
+        List<String> list = set.stream().sorted().collect(Collectors.toList());
+        System.out.println(list);
 	}
 
 }

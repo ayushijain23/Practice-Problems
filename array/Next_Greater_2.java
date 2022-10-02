@@ -46,7 +46,7 @@ public class Next_Greater_2 {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-       int arr[] = {7,8,1, 4};
+       int arr[] = {7,8,1, 4,6};
        
        arr = findNext(arr);
        

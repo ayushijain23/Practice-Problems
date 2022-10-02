@@ -99,15 +99,15 @@ public class Merge_Two_Lists {
 	       list2.head.next.next.next.next.next = new Node(15);
 	      
 	       
-	      // mergeTwoLists( list.head, list2.head);
+	       mergeTwoLists( list.head, list2.head);
            
-	     list.head = mergeTwoListsByRecursion( list.head, list2.head);
-	     
-	     while( list.head!=null)
-	     {
-	    	 System.out.print(list.head.data+"->");
-	    	 list.head =list.head.next;
-	     }
+	    // list.head = mergeTwoListsByRecursion( list.head, list2.head);
+//
+//	     while( list.head!=null)
+//	     {
+//	    	 System.out.print(list.head.data+"->");
+//	    	 list.head =list.head.next;
+//	     }
 	      
 	}
 

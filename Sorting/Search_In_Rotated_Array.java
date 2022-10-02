@@ -6,8 +6,6 @@ public class Search_In_Rotated_Array {
 	{
 		int li = 0;
 		int hi = arr.length - 1;
-		
-        
 		while( li < hi)
 		{
 			int mid = (li + hi)/2;

@@ -1,8 +1,6 @@
 package Strings;
 
 public class Longest_Palindromic_SubString {
-	
-	
 	// O(n3) approach 
 	private static String findPalindromicString(String str)
 	{
@@ -39,54 +37,47 @@ public class Longest_Palindromic_SubString {
 		//System.out.println(result);
 				return result;
 	}
-	
-	
+
 	private static String findEvenOdd(String str)
 	{
 		int n = str.length();
-		
 		int start = 0;
 		int maxLength = 1;
 		
-		for( int i = 1;i<n;i++)
+		for(int i = 1; i < n; i++)
 		{
-		
 			int i1 = i+1;
 			int i2 = i-1;
-			
-			
+
 			//odd palindrome
-			while( i1<n && i2 >=0)
+			while(i1 < n && i2 >=0)
 			{
-				if(str.charAt(i2)==str.charAt(i1))
+				if(str.charAt(i2) == str.charAt(i1))
 				{
-					
-					if(i1-i2+1 > maxLength)
-				   {maxLength = i1-i2+1;
+					if(i1 - i2 + 1 > maxLength)
+				   {
+					   maxLength = i1- i2 + 1;
 						start = i2;
-						}
-					
+				   }
 					i1++;
 					i2--;
 				}
 				else
 					break;
 			}
-			
-			
 			//even Palindrome
 			i1 = i;
-			i2= i-1;
+			i2 = i-1;
 			
-			while( i1 <n && i2 >=0)
+			while(i1 < n && i2 >= 0)
 			{
-				if(str.charAt(i1)== str.charAt(i2))
+				if(str.charAt(i1) == str.charAt(i2))
 				{				
-					if(i1-i2+1 >maxLength)
-					   {maxLength = i1-i2+1;
+					if(i1-i2+1 > maxLength)
+					{
+						   maxLength = i1-i2+1;
 							start = i2;
-							}
-					
+					}
 					i1++;
 					i2--;
 				}

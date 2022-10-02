@@ -10,7 +10,7 @@ public class EggDrop {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int floors = 3;
+		int floors = 10;
 		int eggs = 2;
         int ans = eggDrop( floors, eggs);
         System.out.println(ans);

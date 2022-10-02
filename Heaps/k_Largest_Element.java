@@ -21,6 +21,7 @@ public class k_Largest_Element {
         while(!pq.isEmpty()){
             System.out.print(" "+pq.poll());
         }
+
     }
 
     public static void firstKSmallestElements(int arr[], int k){
@@ -30,7 +31,7 @@ public class k_Largest_Element {
         }
 
         for(int i = k ; i < arr.length; i++){
-            if(arr[i] < pq.peek()){
+            if(arr[i] < pq.peek() && !pq.contains(arr[i])){
                 pq.poll();
                 pq.add(arr[i]);
             }
@@ -46,5 +47,9 @@ public class k_Largest_Element {
         firstKLargestElements(arr, k);
         System.out.println();
         firstKSmallestElements(arr, k);
+        System.out.println();
+        int arr2[] = {7, 4, 4, 3, 6, 3, 9, 1};
+        firstKSmallestElements(arr2, 3);
+
     }
 }

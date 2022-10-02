@@ -37,7 +37,7 @@ public class TargetSumSet {
 
         int nums2[] = {3, 34, 4, 12, 5, 2};
         targetValue = 30;
-        isPresent = isTargetSumPresent(nums, targetValue);
+        isPresent = isTargetSumPresent(nums2, targetValue);
         System.out.println(isPresent);
     }
 }

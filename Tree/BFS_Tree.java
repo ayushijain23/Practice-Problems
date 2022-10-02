@@ -37,7 +37,7 @@ public class BFS_Tree {
 	  {
 		  int height = Height(root);
 		  
-		  for( int i = 1;i<=height;i++)
+		  for( int i = 1; i <= height; i++)
 		  {
 			  printLevel(root,i);
 		  }

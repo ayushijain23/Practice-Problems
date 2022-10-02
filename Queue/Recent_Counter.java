@@ -31,15 +31,13 @@ public class Recent_Counter {
         {
             System.out.println(ping(time[i]));
         }
-        
     }
-     
+
     public static int ping(int t) {
         while( !queue.isEmpty() && t-queue.peek() > 3000)
         {
             queue.poll();
         }
-               
         queue.add(t);
         return queue.size();
     }   

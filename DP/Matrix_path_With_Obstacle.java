@@ -54,5 +54,4 @@ public class Matrix_path_With_Obstacle {
 		
 		System.out.println(dp[row-1][col-1]);
 	}
-
 }

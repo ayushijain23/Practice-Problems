@@ -25,19 +25,19 @@ public class Minimum_Platforms {
 		int i = 1, j= 0;
 		while( i < arr.length && j < dep.length)
 		{
-			if( arr[i] <= dep[j])
+			if(arr[i] <= dep[j])
 			{
 				i++;
 				count++;
 			}
 			
-			else if( arr[i] > dep[j])
+			else if(arr[i] > dep[j])
 			{
 				count--;
 				j++;
 			}
 			
-	   platforms = Math.max(platforms,count );	
+	    platforms = Math.max(platforms,count );
 		}
 		
 		return platforms;

@@ -39,14 +39,12 @@ static Node head1;
 	}
 	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		   Left_Rotation L1 = new Left_Rotation(); 
-	       int k = 8;
-	        L1.head1 = new Node(1); 
-	        L1.head1.next = new Node(2); 
-	        L1.head1.next.next = new Node(3); 
-	        L1.head1.next.next.next = new Node(4); 
-	        L1.head1.next.next.next.next = new Node(5);
+	       int k = 2;
+	        head1 = new Node(1);
+	        head1.next = new Node(2);
+	        head1.next.next = new Node(3);
+	        head1.next.next.next = new Node(4);
+	        head1.next.next.next.next = new Node(5);
 	        
 	        Node temp = head1;
 	        int length = 1;
@@ -63,7 +61,7 @@ static Node head1;
 	        if(k >= length)
 	           k = k % length;
 	           
-	        Node head2 = leftRotate(head1,k);
+	        Node head2 = leftRotate(head1, k);
 	        temp = head2;
 	        
 	        while(temp.next!=null)
@@ -72,6 +70,7 @@ static Node head1;
 	        	temp =  temp.next;
 	        }
 	        System.out.print(temp.data);
+
 	        
 	        
 	}
